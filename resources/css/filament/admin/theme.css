@@ -1,0 +1,56 @@
+@import 'tailwindcss';
+
+@import '../../../../vendor/filament/filament/resources/css/index.css';
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-heading: 'Outfit', 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+    --color-primary-50: oklch(0.96 0.02 240);
+    --color-primary-100: oklch(0.90 0.04 240);
+    --color-primary-200: oklch(0.82 0.07 240);
+    --color-primary-300: oklch(0.70 0.10 240);
+    --color-primary-400: oklch(0.58 0.14 240);
+    --color-primary-500: oklch(0.46 0.18 245);
+    --color-primary-600: oklch(0.38 0.17 248);
+    --color-primary-700: oklch(0.30 0.14 250);
+    --color-primary-800: oklch(0.23 0.11 252);
+    --color-primary-900: oklch(0.17 0.08 255);
+    --color-primary-950: oklch(0.12 0.05 258);
+
+    --color-accent-50: oklch(0.97 0.04 55);
+    --color-accent-100: oklch(0.93 0.08 55);
+    --color-accent-200: oklch(0.88 0.13 52);
+    --color-accent-300: oklch(0.82 0.18 50);
+    --color-accent-400: oklch(0.76 0.21 48);
+    --color-accent-500: oklch(0.70 0.22 45);
+    --color-accent-600: oklch(0.61 0.20 42);
+    --color-accent-700: oklch(0.51 0.17 40);
+    --color-accent-800: oklch(0.41 0.13 38);
+    --color-accent-900: oklch(0.31 0.09 36);
+    --color-accent-950: oklch(0.21 0.06 34);
+}
+
+.fi-sidebar {
+    @apply border-r border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-950;
+}
+
+.fi-sidebar-header {
+    @apply border-b border-gray-100 dark:border-gray-800;
+}
+
+.fi-topbar {
+    @apply border-b border-gray-200 bg-white/90 backdrop-blur-md dark:border-gray-800 dark:bg-gray-950/90;
+}
+
+.fi-ta-ctn {
+    @apply rounded-xl border border-gray-200 shadow-sm dark:border-gray-800;
+}
+
+.fi-section {
+    @apply rounded-xl border border-gray-200 shadow-sm dark:border-gray-800;
+}
+
+.fi-section-header {
+    @apply font-heading tracking-tight;
+}

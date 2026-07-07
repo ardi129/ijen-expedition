@@ -1,0 +1,9 @@
+<a href="https://api.whatsapp.com/send?phone=6285748711646&text=Halo,%20customer%20service%20Ijen%20Expedition..." target="_blank" rel="noopener noreferrer" class="fixed bottom-4 sm:bottom-6 left-4 sm:left-6 z-40 p-3 rounded-full bg-[#25D366] text-white shadow-lg hover:bg-[#128C7E] hover:scale-110 focus:outline-none transition-all duration-300 flex items-center justify-center group" aria-label="Chat with us on WhatsApp">
+    <span class="absolute left-full ml-3 whitespace-nowrap bg-white text-gray-800 text-xs font-medium px-2 py-1 rounded shadow-sm opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden sm:block">
+        Chat WhatsApp
+    </span>
+    <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 24 24">
+        <path fill-rule="evenodd" d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1.129-16.732c-2.45-.043-5.07.665-6.837 2.115-1.922 1.577-2.923 3.935-2.83 6.365.074 1.954.912 3.864 2.378 5.253a6.5 6.5 0 001.385.992c-.172.585-.453 1.25-.972 1.996l-.16.23h1.83c1.385 0 2.457-.36 3.195-1.042 1.155.334 2.392.42 3.612.228 2.26-.356 4.314-1.744 5.37-3.798C19.041 15.3 19 12.872 17.772 10.99 16.324 8.766 13.684 5.33 10.871 5.268z" clip-rule="evenodd" />
+        <path d="M16.634 14.887a1.696 1.696 0 01-1.004.917c-.77.168-1.57.195-2.355.082a7.352 7.352 0 01-3.39-1.638 6.94 6.94 0 01-2.127-3.143c-.155-.41-.24-.842-.254-1.282a1.71 1.71 0 01.353-1.164c.264-.32.617-.552 1.018-.67l.11-.03a.5.5 0 01.602.327c.18.508.384 1.006.613 1.493.076.16.108.34.09.516a.91.91 0 01-.332.62c-.174.148-.37.264-.58.344-.13.05-.183.19-.115.31.547.962 1.272 1.8 2.138 2.47a5.521 5.521 0 002.502 1.096c.14.02.247-.077.214-.21a1.977 1.977 0 01.077-.822c.113-.338.318-.636.592-.857l.08-.06a.5.5 0 01.637.072c.42.475.823.965 1.206 1.47a.499.499 0 01-.073.66l-.004.002z" />
+    </svg>
+</a>
