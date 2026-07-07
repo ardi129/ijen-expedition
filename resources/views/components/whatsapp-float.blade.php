@@ -1,5 +1,5 @@
-<a href="https://api.whatsapp.com/send?phone=6285748711646&text=Halo,%20customer%20service%20Ijen%20Expedition..." target="_blank" rel="noopener noreferrer" class="fixed bottom-4 sm:bottom-6 left-4 sm:left-6 z-40 p-3 rounded-full bg-[#25D366] text-white shadow-lg hover:bg-[#128C7E] hover:scale-110 focus:outline-none transition-all duration-300 flex items-center justify-center group" aria-label="Chat with us on WhatsApp">
-    <span class="absolute left-full ml-3 whitespace-nowrap bg-white text-gray-800 text-xs font-medium px-2 py-1 rounded shadow-sm opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden sm:block">
+<a href="https://api.whatsapp.com/send?phone=6285748711646&text=Halo,%20customer%20service%20Ijen%20Expedition..." target="_blank" rel="noopener noreferrer" class="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-40 p-3 rounded-full bg-[#25D366] text-white shadow-lg hover:bg-[#128C7E] hover:scale-110 focus:outline-none transition-all duration-300 flex items-center justify-center group min-h-[44px] min-w-[44px] mb-[calc(env(safe-area-inset-bottom)+1rem)] sm:mb-0" aria-label="Chat with us on WhatsApp">
+    <span class="absolute right-full mr-3 whitespace-nowrap bg-white dark:bg-gray-800 text-gray-800 dark:text-white text-xs font-medium px-2 py-1 rounded shadow-sm opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden sm:block border dark:border-gray-700">
         Chat WhatsApp
     </span>
     <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 24 24">

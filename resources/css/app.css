@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700&display=swap');
 
 @import 'tailwindcss';
 
@@ -7,9 +7,11 @@
 @source '../**/*.blade.php';
 @source '../**/*.js';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
-    --font-sans: 'Playfair Display', 'Cormorant Garamond', 'Lora', serif;
-    --font-heading: 'Playfair Display', 'Cormorant Garamond', 'Lora', serif;
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-heading: 'Playfair Display', serif;
 
     /* Deep Navy (#0F172A) primary palette */
     --color-primary-50: #F8FAFC;
@@ -49,10 +51,10 @@
     }
 
     body {
-        font-family: 'Playfair Display', 'Cormorant Garamond', 'Lora', serif !important;
+        font-family: var(--font-sans);
         font-weight: 400;
         letter-spacing: 0.02em;
-        @apply text-primary-700 bg-white antialiased selection:bg-primary-900 selection:text-white;
+        @apply text-primary-700 bg-white dark:bg-gray-950 dark:text-gray-300 antialiased selection:bg-primary-900 selection:text-white dark:selection:bg-primary-600;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         text-rendering: optimizeLegibility;
@@ -60,14 +62,14 @@
     }
 
     h1, h2, h3, h4, h5, h6 {
-        font-family: 'Playfair Display', 'Cormorant Garamond', 'Lora', serif !important;
-        font-weight: 700 !important;
+        font-family: var(--font-heading);
+        font-weight: 700;
         letter-spacing: -0.01em;
-        @apply text-primary-900;
+        @apply text-primary-900 dark:text-white;
     }
 
     p {
-        font-family: 'Playfair Display', 'Cormorant Garamond', 'Lora', serif !important;
+        font-family: var(--font-sans);
         font-weight: 400;
         letter-spacing: 0.02em;
         line-height: 1.75;
@@ -77,10 +79,6 @@
         @apply max-w-full h-auto;
     }
 
-    input, select, textarea, button {
-        @apply text-base;
-    }
-
     [x-cloak] {
         display: none !important;
     }
@@ -88,39 +86,39 @@
 
 @layer components {
     .btn-primary {
-        @apply inline-flex items-center justify-center px-8 py-2.5 border border-transparent text-sm font-medium rounded-full text-white bg-primary-900 hover:bg-primary-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-900 transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.97] min-h-11;
+        @apply inline-flex items-center justify-center px-6 sm:px-8 py-2.5 border border-transparent text-sm font-medium rounded-full text-white bg-primary-900 hover:bg-primary-800 dark:bg-primary-700 dark:hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-900 dark:focus:ring-offset-gray-900 transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.97] min-h-[44px] min-w-[44px];
     }
 
     .btn-secondary {
-        @apply inline-flex items-center justify-center px-8 py-2.5 border border-transparent text-sm font-medium rounded-full text-primary-900 bg-primary-100 hover:bg-primary-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-300 transition-all duration-300 active:scale-[0.97] min-h-11;
+        @apply inline-flex items-center justify-center px-6 sm:px-8 py-2.5 border border-transparent text-sm font-medium rounded-full text-primary-900 bg-primary-100 hover:bg-primary-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-300 dark:focus:ring-offset-gray-900 transition-all duration-300 active:scale-[0.97] min-h-[44px] min-w-[44px];
     }
 
     .btn-accent {
-        @apply inline-flex items-center justify-center px-8 py-2.5 border border-transparent text-sm font-medium rounded-full text-white bg-accent-500 hover:bg-accent-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-500 transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.97] min-h-11;
+        @apply inline-flex items-center justify-center px-6 sm:px-8 py-2.5 border border-transparent text-sm font-medium rounded-full text-white bg-accent-500 hover:bg-accent-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-500 dark:focus:ring-offset-gray-900 transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.97] min-h-[44px] min-w-[44px];
     }
 
     .btn-outline {
-        @apply inline-flex items-center justify-center px-8 py-2.5 border-2 border-primary-900 text-sm font-medium rounded-full text-primary-900 bg-transparent hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-300 transition-all duration-300 active:scale-[0.97] min-h-11;
+        @apply inline-flex items-center justify-center px-6 sm:px-8 py-2.5 border-2 border-primary-900 dark:border-primary-400 text-sm font-medium rounded-full text-primary-900 dark:text-primary-400 bg-transparent hover:bg-primary-50 dark:hover:bg-primary-900/30 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-300 dark:focus:ring-offset-gray-900 transition-all duration-300 active:scale-[0.97] min-h-[44px] min-w-[44px];
     }
 
     .card {
-        @apply bg-white rounded-xl shadow-soft overflow-hidden transition-all duration-300 hover:shadow-soft-hover border border-primary-100;
+        @apply bg-white dark:bg-gray-900 rounded-xl shadow-soft overflow-hidden transition-all duration-300 hover:shadow-soft-hover border border-primary-100 dark:border-gray-800;
     }
 
     .glass-panel {
-        @apply bg-white/80 backdrop-blur-md border border-primary-200 shadow-glass rounded-xl;
+        @apply bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border border-primary-200 dark:border-gray-800 shadow-glass rounded-xl;
     }
 
     .form-input {
-        @apply block w-full rounded-lg border-primary-200 shadow-sm focus:border-primary-900 focus:ring-primary-900/20 text-sm px-4 py-3 bg-white text-primary-900 transition-colors duration-200 placeholder:text-primary-400;
+        @apply block w-full rounded-lg border-primary-200 dark:border-gray-700 shadow-sm focus:border-primary-900 dark:focus:border-primary-500 focus:ring-primary-900/20 dark:focus:ring-primary-500/20 text-sm px-4 py-3 bg-white dark:bg-gray-800 text-primary-900 dark:text-white transition-colors duration-200 placeholder:text-primary-400 dark:placeholder:text-gray-500 min-h-[44px];
     }
 
     .form-label {
-        @apply block text-sm font-medium text-primary-700 mb-1;
+        @apply block text-sm font-medium text-primary-700 dark:text-gray-300 mb-1;
     }
 
     .touch-target {
-        @apply min-h-11 min-w-11;
+        @apply min-h-[44px] min-w-[44px];
     }
 
     .section-padding {
@@ -146,10 +144,20 @@
         background-color: var(--color-primary-100);
         color: var(--color-primary-800);
     }
+    
+    .dark .badge-primary {
+        background-color: var(--color-primary-900);
+        color: var(--color-primary-200);
+    }
 
     .badge-accent {
         background-color: var(--color-accent-100);
         color: var(--color-accent-800);
+    }
+    
+    .dark .badge-accent {
+        background-color: var(--color-accent-900);
+        color: var(--color-accent-200);
     }
 
     .badge-green {
@@ -236,8 +244,15 @@ header#main-header {
     --nav-indicator: #9CA3AF;
 }
 
+.dark header#main-header {
+    --nav-color: #D1D5DB;
+    --nav-active: #F3F4F6;
+    --nav-hover: #E5E7EB;
+    --nav-indicator: #9CA3AF;
+}
+
 header#main-header[data-transparent="true"] {
-    --nav-color: rgba(255, 255, 255, 0.75);
+    --nav-color: rgba(255, 255, 255, 0.85);
     --nav-active: #fff;
     --nav-hover: #fff;
     --nav-indicator: #fff;
@@ -248,6 +263,13 @@ header#main-header[data-transparent="true"].navbar-scrolled {
     --nav-active: #1E293B;
     --nav-hover: #334155;
     --nav-indicator: #94A3B8;
+}
+
+.dark header#main-header[data-transparent="true"].navbar-scrolled {
+    --nav-color: #CBD5E1;
+    --nav-active: #F8FAFC;
+    --nav-hover: #F1F5F9;
+    --nav-indicator: #64748B;
 }
 
 .nav-link {
@@ -271,12 +293,27 @@ header#main-header[data-transparent="true"].navbar-scrolled {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
+.dark .navbar-scrolled {
+    background: rgba(15, 23, 42, 0.9) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
 .navbar-scrolled .nav-cta {
     background-color: #0F172A !important;
     color: #fff !important;
 }
+
+.dark .navbar-scrolled .nav-cta {
+    background-color: #334155 !important;
+    color: #F8FAFC !important;
+}
+
 .navbar-scrolled .nav-mobile-btn {
     color: #1E293B;
+}
+
+.dark .navbar-scrolled .nav-mobile-btn {
+    color: #F8FAFC;
 }
 
 @media (max-width: 640px) {

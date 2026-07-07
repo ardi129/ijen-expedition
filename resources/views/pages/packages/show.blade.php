@@ -43,7 +43,7 @@
                         <!-- Tab Content: Overview -->
                         <div class="tab-pane block" id="tab-overview">
                             <h2 class="text-lg sm:text-2xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4 border-b pb-2 dark:border-gray-700">Cerita Perjalanan</h2>
-                            <div class="prose prose-sm sm:prose-base prose-primary max-w-none dark:prose-invert text-gray-700 dark:text-gray-300 leading-relaxed">
+                            <div class="text-xs sm:text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed text-justify">
                                 {!! nl2br(e($tourPackage->description)) !!}
                             </div>
         

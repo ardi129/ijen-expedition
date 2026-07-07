@@ -10,12 +10,12 @@
             <label for="name" class="form-label">Nama Lengkap <span class="text-red-500">*</span></label>
             <input type="text" name="name" id="name" value="{{ old('name') }}" class="form-input @error('name') border-red-500 focus:ring-red-500 focus:border-red-500 @enderror" required data-msg-required="Nama lengkap wajib diisi">
             @error('name')
-                <div class="mt-2 text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg p-2 flex items-center">
+                <div class="mt-2 text-sm text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800/50 rounded-lg p-2 flex items-center">
                     <svg class="w-4 h-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     <span>{{ $message }}</span>
                 </div>
             @enderror
-            <div class="invalid-feedback hidden mt-2 text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg p-2 flex items-center">
+            <div class="invalid-feedback hidden mt-2 text-sm text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800/50 rounded-lg p-2 flex items-center">
                 <svg class="w-4 h-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 <span class="feedback-text"></span>
             </div>
@@ -26,12 +26,12 @@
                 <label for="email" class="form-label">Email <span class="text-red-500">*</span></label>
                 <input type="email" name="email" id="email" value="{{ old('email') }}" class="form-input @error('email') border-red-500 focus:ring-red-500 focus:border-red-500 @enderror" required data-msg-required="Email wajib diisi" data-msg-email="Format email tidak valid">
                 @error('email')
-                    <div class="mt-2 text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg p-2 flex items-center">
+                    <div class="mt-2 text-sm text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800/50 rounded-lg p-2 flex items-center">
                         <svg class="w-4 h-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         <span>{{ $message }}</span>
                     </div>
                 @enderror
-                <div class="invalid-feedback hidden mt-2 text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg p-2 flex items-center">
+                <div class="invalid-feedback hidden mt-2 text-sm text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800/50 rounded-lg p-2 flex items-center">
                     <svg class="w-4 h-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     <span class="feedback-text"></span>
                 </div>
@@ -41,12 +41,12 @@
                 <label for="phone" class="form-label">No. WhatsApp / Telp <span class="text-red-500">*</span></label>
                 <input type="tel" name="phone" id="phone" value="{{ old('phone') }}" class="form-input @error('phone') border-red-500 focus:ring-red-500 focus:border-red-500 @enderror" required data-msg-required="Nomor WhatsApp/Telp wajib diisi">
                 @error('phone')
-                    <div class="mt-2 text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg p-2 flex items-center">
+                    <div class="mt-2 text-sm text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800/50 rounded-lg p-2 flex items-center">
                         <svg class="w-4 h-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         <span>{{ $message }}</span>
                     </div>
                 @enderror
-                <div class="invalid-feedback hidden mt-2 text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg p-2 flex items-center">
+                <div class="invalid-feedback hidden mt-2 text-sm text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800/50 rounded-lg p-2 flex items-center">
                     <svg class="w-4 h-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     <span class="feedback-text"></span>
                 </div>
@@ -60,17 +60,17 @@
                 <label for="travel_date" class="form-label">Tanggal Perjalanan <span class="text-red-500">*</span></label>
                 <input type="date" name="travel_date" id="travel_date" value="{{ old('travel_date') }}" min="{{ date('Y-m-d', strtotime('+1 day')) }}" class="form-input @error('travel_date') border-red-500 focus:ring-red-500 focus:border-red-500 @enderror" required data-msg-required="Tanggal perjalanan wajib dipilih">
 
-                <div id="date_info" class="hidden mt-1 text-xs px-2 py-1 bg-primary-50 text-primary-700 border border-primary-200 rounded">
+                <div id="date_info" class="hidden mt-1 text-xs px-2 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 border border-primary-200 dark:border-primary-800/50 rounded">
                     Sistem mendeteksi: <strong id="day_type">Weekday</strong>. (Harga otomatis menyesuaikan)
                 </div>
 
                 @error('travel_date')
-                    <div class="mt-2 text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg p-2 flex items-center">
+                    <div class="mt-2 text-sm text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800/50 rounded-lg p-2 flex items-center">
                         <svg class="w-4 h-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         <span>{{ $message }}</span>
                     </div>
                 @enderror
-                <div class="invalid-feedback hidden mt-2 text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg p-2 flex items-center">
+                <div class="invalid-feedback hidden mt-2 text-sm text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800/50 rounded-lg p-2 flex items-center">
                     <svg class="w-4 h-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     <span class="feedback-text"></span>
                 </div>
@@ -92,12 +92,12 @@
                     </button>
                 </div>
                 @error('number_of_people')
-                    <div class="mt-2 text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg p-2 flex items-center">
+                    <div class="mt-2 text-sm text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800/50 rounded-lg p-2 flex items-center">
                         <svg class="w-4 h-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         <span>{{ $message }}</span>
                     </div>
                 @enderror
-                <div class="invalid-feedback hidden mt-2 text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg p-2 flex items-center">
+                <div class="invalid-feedback hidden mt-2 text-sm text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800/50 rounded-lg p-2 flex items-center">
                     <svg class="w-4 h-4 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     <span class="feedback-text"></span>
                 </div>

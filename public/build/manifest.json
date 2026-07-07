@@ -292,7 +292,7 @@
     "src": "_outfit-800-normal-DyhPHUt-.woff"
   },
   "resources/css/app.css": {
-    "file": "assets/app-CMceapy1.css",
+    "file": "assets/app-DwRrzpPS.css",
     "name": "app",
     "names": [
       "app.css"
@@ -301,7 +301,7 @@
     "isEntry": true
   },
   "resources/css/filament/admin/theme.css": {
-    "file": "assets/theme-BrTxUa6R.css",
+    "file": "assets/theme-Cyjia6Nd.css",
     "name": "theme",
     "names": [
       "theme.css"
@@ -310,7 +310,7 @@
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-C8BGKc5B.js",
+    "file": "assets/app-BOVEqzFG.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true

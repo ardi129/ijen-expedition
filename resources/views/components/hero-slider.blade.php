@@ -3,7 +3,7 @@
 @endphp
 
 @if($slides->isNotEmpty())
-<div class="relative w-full h-screen min-h-[600px] overflow-hidden group" id="hero-slider-wrapper">
+<div class="relative w-full h-[85vh] min-h-[480px] sm:h-screen sm:min-h-[600px] overflow-hidden group" id="hero-slider-wrapper">
     <div class="slider-container w-full h-full">
         @foreach($slides as $index => $slide)
             <div class="hero-slide slide absolute inset-0 {{ $loop->first ? 'active' : '' }}">

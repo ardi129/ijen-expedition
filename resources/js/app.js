@@ -14,12 +14,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (mobileMenuButton && mobileMenu) {
             const toggleMenu = () => {
-                mobileMenu.classList.toggle('translate-x-full');
+                const isOpen = mobileMenu.classList.toggle('translate-x-full');
+                const nowOpen = !isOpen;
                 if (overlay) {
                     overlay.classList.toggle('opacity-0');
                     overlay.classList.toggle('pointer-events-none');
                 }
-                document.body.classList.toggle('overflow-hidden'); // Prevent scrolling
+                if (nowOpen) {
+                    document.documentElement.style.overflow = 'hidden';
+                    document.body.style.overflow = 'hidden';
+                    document.body.style.position = 'fixed';
+                    document.body.style.width = '100%';
+                    document.body.style.top = `-${window.scrollY}px`;
+                } else {
+                    const scrollY = Math.abs(parseInt(document.body.style.top || '0'));
+                    document.documentElement.style.overflow = '';
+                    document.body.style.overflow = '';
+                    document.body.style.position = '';
+                    document.body.style.width = '';
+                    document.body.style.top = '';
+                    window.scrollTo(0, scrollY);
+                }
             };
 
             mobileMenuButton.addEventListener('click', toggleMenu);

@@ -33,6 +33,11 @@
 
 .fi-sidebar {
     @apply border-r border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-950;
+    z-index: 50 !important;
+}
+
+.fi-sidebar-close-overlay {
+    z-index: 45 !important;
 }
 
 .fi-sidebar-header {

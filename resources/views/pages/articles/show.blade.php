@@ -31,7 +31,7 @@
         </div>
 
         <div class="container-custom max-w-3xl">
-            <div class="prose prose-sm sm:prose-base md:prose-lg prose-primary dark:prose-invert max-w-none mb-8 sm:mb-12 text-justify">
+            <div class="text-xs sm:text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed text-justify mb-8 sm:mb-12">
                 {!! nl2br(e($article->body)) !!}
             </div>
             
