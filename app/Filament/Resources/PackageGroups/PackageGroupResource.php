@@ -3,23 +3,26 @@
 namespace App\Filament\Resources\PackageGroups;
 
 use App\Filament\Resources\PackageGroups\Pages\ManagePackageGroups;
+use App\Models\Category;
 use App\Models\PackageGroup;
 use BackedEnum;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Forms\Components\Section;
+use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
+
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Support\Collection;
 
 class PackageGroupResource extends Resource
 {
@@ -62,17 +65,34 @@ class PackageGroupResource extends Resource
                                 'duration' => 'Durasi (hari)',
                                 'category' => 'Kategori',
                             ])
+                            ->live()
                             ->required(),
-                        TextInput::make('filter_value')
+                        Select::make('filter_value')
                             ->label('Nilai Filter')
-                            ->helperText('Contoh: 3 (untuk durasi), open-trip (untuk kategori)')
-                            ->required(),
-                        TextInput::make('exclude_filter_type')
+                            ->required()
+                            ->options(fn ($get): array|Collection => $get('filter_type') === 'category'
+                                ? Category::orderBy('name')->pluck('name', 'slug')
+                                : collect(range(1, 14))->mapWithKeys(fn (int $i) => [$i => $i . ' Hari']))
+                            ->helperText(fn ($get) => $get('filter_type') === 'category'
+                                ? 'Pilih kategori paket'
+                                : 'Pilih durasi paket dalam hari'),
+                        Select::make('exclude_filter_type')
                             ->label('Kecualikan Berdasarkan')
-                            ->helperText('Opsional, contoh: category'),
-                        TextInput::make('exclude_filter_value')
+                            ->options([
+                                '' => 'Tidak ada',
+                                'duration' => 'Durasi (hari)',
+                                'category' => 'Kategori',
+                            ])
+                            ->live()
+                            ->helperText('Opsional'),
+                        Select::make('exclude_filter_value')
                             ->label('Nilai Pengecualian')
-                            ->helperText('Contoh: honeymoon'),
+                            ->helperText('Pilih nilai yang dikecualikan')
+                            ->options(fn ($get): array|Collection => $get('exclude_filter_type') === 'category'
+                                ? Category::orderBy('name')->pluck('name', 'slug')
+                                : ($get('exclude_filter_type') === 'duration'
+                                    ? collect(range(1, 14))->mapWithKeys(fn (int $i) => [$i => $i . ' Hari'])
+                                    : []))
                     ]),
                 Section::make('Pengaturan')
                     ->columns(2)

@@ -11,7 +11,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
-use Filament\Forms\Components\Section;
+use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Resources\Resource;
@@ -75,7 +75,18 @@ class ContentBlockResource extends Resource
                             ->label('Gambar')
                             ->image()
                             ->disk('public')
-                            ->directory('content-blocks'),
+                            ->directory('content-blocks')
+                            ->imageResizeMode('cover')
+                            ->imageResizeTargetWidth('1200')
+                            ->imageResizeTargetHeight('675')
+                            ->imageEditor()
+                            ->imageEditorViewportWidth('1200')
+                            ->imageEditorViewportHeight('675')
+                            ->imageEditorAspectRatios([
+                                '16:9',
+                                '4:3',
+                                '1:1',
+                            ]),
                     ]),
                 Section::make('Pengaturan')
                     ->columns(2)

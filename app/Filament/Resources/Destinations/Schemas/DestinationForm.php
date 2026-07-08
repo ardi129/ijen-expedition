@@ -52,9 +52,16 @@ class DestinationForm
                             ->disk('public')
                             ->directory('destinations')
                             ->imageResizeMode('cover')
-                            ->imageCropAspectRatio('16:9')
                             ->imageResizeTargetWidth('1200')
-                            ->imageResizeTargetHeight('675'),
+                            ->imageResizeTargetHeight('675')
+                            ->imageEditor()
+                            ->imageEditorViewportWidth('1200')
+                            ->imageEditorViewportHeight('675')
+                            ->imageEditorAspectRatios([
+                                '16:9',
+                                '4:3',
+                                '1:1',
+                            ]),
                     ]),
                 Section::make('Pengaturan')
                     ->icon('heroicon-o-cog-6-tooth')

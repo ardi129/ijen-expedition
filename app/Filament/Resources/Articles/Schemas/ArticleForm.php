@@ -42,7 +42,18 @@ class ArticleForm
                             ->label('Gambar')
                             ->image()
                             ->disk('public')
-                            ->directory('articles'),
+                            ->directory('articles')
+                            ->imageResizeMode('cover')
+                            ->imageResizeTargetWidth('1200')
+                            ->imageResizeTargetHeight('675')
+                            ->imageEditor()
+                            ->imageEditorViewportWidth('1200')
+                            ->imageEditorViewportHeight('675')
+                            ->imageEditorAspectRatios([
+                                '16:9',
+                                '4:3',
+                                '1:1',
+                            ]),
                         TextInput::make('category')
                             ->label('Kategori')
                             ->required()

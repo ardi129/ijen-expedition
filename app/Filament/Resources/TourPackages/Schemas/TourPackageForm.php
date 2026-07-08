@@ -72,9 +72,16 @@ class TourPackageForm
                                     ->disk('public')
                                     ->directory('tour-packages')
                                     ->imageResizeMode('cover')
-                                    ->imageCropAspectRatio('16:9')
                                     ->imageResizeTargetWidth('1200')
-                                    ->imageResizeTargetHeight('675'),
+                                    ->imageResizeTargetHeight('675')
+                                    ->imageEditor()
+                                    ->imageEditorViewportWidth('1200')
+                                    ->imageEditorViewportHeight('675')
+                                    ->imageEditorAspectRatios([
+                                        '16:9',
+                                        '4:3',
+                                        '1:1',
+                                    ]),
                             ]),
                         Tab::make('Detail Paket')
                             ->icon('heroicon-o-list-bullet')

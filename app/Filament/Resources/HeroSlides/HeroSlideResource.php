@@ -3,14 +3,19 @@
 namespace App\Filament\Resources\HeroSlides;
 
 use App\Filament\Resources\HeroSlides\Pages\ManageHeroSlides;
+use App\Models\Article;
+use App\Models\Category;
+use App\Models\Destination;
 use App\Models\HeroSlide;
+use App\Models\TourPackage;
 use BackedEnum;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
+use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -63,9 +68,16 @@ class HeroSlideResource extends Resource
                             ->disk('public')
                             ->directory('hero-slides')
                             ->imageResizeMode('cover')
-                            ->imageCropAspectRatio('16:9')
                             ->imageResizeTargetWidth('1920')
                             ->imageResizeTargetHeight('1080')
+                            ->imageEditor()
+                            ->imageEditorViewportWidth('1920')
+                            ->imageEditorViewportHeight('1080')
+                            ->imageEditorAspectRatios([
+                                '16:9',
+                                '4:3',
+                                '1:1',
+                            ])
                             ->required(),
                     ]),
                 Section::make('Tombol CTA')
@@ -73,12 +85,18 @@ class HeroSlideResource extends Resource
                     ->schema([
                         TextInput::make('cta_text')
                             ->label('Teks Tombol 1'),
-                        TextInput::make('cta_link')
-                            ->label('Link Tombol 1'),
+                        Select::make('cta_link')
+                            ->label('Tautan Tombol 1')
+                            ->searchable()
+                            ->options(static::getPageLinkOptions())
+                            ->placeholder('Pilih halaman tujuan...'),
                         TextInput::make('cta_text_2')
                             ->label('Teks Tombol 2'),
-                        TextInput::make('cta_link_2')
-                            ->label('Link Tombol 2'),
+                        Select::make('cta_link_2')
+                            ->label('Tautan Tombol 2')
+                            ->searchable()
+                            ->options(static::getPageLinkOptions())
+                            ->placeholder('Pilih halaman tujuan...'),
                     ]),
                 Section::make('Pengaturan')
                     ->columns(2)
@@ -92,6 +110,35 @@ class HeroSlideResource extends Resource
                             ->label('Aktif'),
                     ]),
             ]);
+    }
+
+    public static function getPageLinkOptions(): array
+    {
+        return [
+            'Halaman Statis' => [
+                '/' => 'Beranda',
+                '/tentang-kami' => 'Tentang Kami',
+                '/faq' => 'FAQ',
+                '/kontak' => 'Kontak',
+            ],
+            'Paket Wisata' => TourPackage::orderBy('title')
+                ->get()
+                ->mapWithKeys(fn ($p) => ["/paket-wisata/{$p->slug}" => $p->title])
+                ->all(),
+            'Artikel' => Article::published()
+                ->orderBy('title')
+                ->get()
+                ->mapWithKeys(fn ($a) => ["/artikel/{$a->slug}" => $a->title])
+                ->all(),
+            'Kategori Paket' => Category::orderBy('name')
+                ->get()
+                ->mapWithKeys(fn ($c) => ["/paket-wisata?category={$c->slug}" => $c->name])
+                ->all(),
+            'Destinasi' => Destination::orderBy('name')
+                ->get()
+                ->mapWithKeys(fn ($d) => ["/destinasi/{$d->slug}" => $d->name])
+                ->all(),
+        ];
     }
 
     public static function table(Table $table): Table
