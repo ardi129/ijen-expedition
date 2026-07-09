@@ -147,6 +147,7 @@ class HeroSlideResource extends Resource
             ->columns([
                 ImageColumn::make('image')
                     ->label('Gambar')
+                    ->disk('public')
                     ->circular()
                     ->size(44),
                 TextColumn::make('title')

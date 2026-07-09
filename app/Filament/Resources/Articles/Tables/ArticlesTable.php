@@ -21,6 +21,7 @@ class ArticlesTable
             ->columns([
                 ImageColumn::make('image')
                     ->label('Gambar')
+                    ->disk('public')
                     ->circular()
                     ->size(40),
                 TextColumn::make('title')

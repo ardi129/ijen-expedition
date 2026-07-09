@@ -20,6 +20,7 @@ class TourPackagesTable
             ->columns([
                 ImageColumn::make('image')
                     ->label('Gambar')
+                    ->disk('public')
                     ->circular()
                     ->size(48),
                 TextColumn::make('title')
