@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class ContentBlock extends Model
 {
@@ -25,5 +26,18 @@ class ContentBlock extends Model
     public function scopeActive($query)
     {
         return $query->where('is_active', true);
+    }
+
+    public function getImageUrlAttribute(): ?string
+    {
+        if (! $this->image) {
+            return null;
+        }
+
+        if (str_starts_with($this->image, '/')) {
+            return asset($this->image);
+        }
+
+        return Storage::url($this->image);
     }
 }

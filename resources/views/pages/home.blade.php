@@ -104,7 +104,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center mb-12 sm:mb-16">
                 <div class="animate-on-scroll order-2 lg:order-1">
                     @if($aboutIntro->image)
-                        <img src="{{ asset($aboutIntro->image) }}" alt="Ijen Expedition Trip" class="w-32 sm:w-48 lg:w-64 h-auto mx-auto lg:mx-0 object-contain dark:brightness-90">
+                        <img src="{{ $aboutIntro->image_url }}" alt="Ijen Expedition Trip" class="w-full h-auto rounded-xl">
                     @endif
                 </div>
                 <div class="animate-on-scroll order-1 lg:order-2">
@@ -134,7 +134,7 @@
                     <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 dark:bg-white/10 rounded-xl flex items-center justify-center mb-4">
                         <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                     </div>
-                    <h3 class="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3">{{ $visi->title ?? 'Visi Kami' }}</h3>
+                    <h3 class="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 text-white">{{ $visi->title ?? 'Visi Kami' }}</h3>
                     <div class="text-primary-100 dark:text-primary-200 text-xs sm:text-sm md:text-base leading-relaxed prose prose-invert max-w-none">
                         {!! $visi->content !!}
                     </div>
@@ -145,7 +145,7 @@
                     <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 dark:bg-white/10 rounded-xl flex items-center justify-center mb-4">
                         <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                     </div>
-                    <h3 class="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3">{{ $misi->title ?? 'Misi Kami' }}</h3>
+                    <h3 class="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 text-white">{{ $misi->title ?? 'Misi Kami' }}</h3>
                     <div class="text-accent-50 dark:text-accent-100 text-xs sm:text-sm md:text-base leading-relaxed prose prose-invert max-w-none">
                         {!! $misi->content !!}
                     </div>
@@ -163,7 +163,7 @@
     @if($cta)
     <section class="relative py-12 sm:py-20 lg:py-24 bg-primary-900 dark:bg-gray-900 overflow-hidden rounded-2xl sm:rounded-[2.5rem] mx-3 sm:mx-6 lg:mx-8 my-10 sm:my-16 lg:my-24 shadow-soft border dark:border-gray-800">
         @if($cta->image)
-            <div class="absolute inset-0 bg-[url('{{ asset($cta->image) }}')] bg-cover bg-center opacity-30 mix-blend-overlay"></div>
+            <div class="absolute inset-0 bg-[url('{{ $cta->image_url }}')] bg-cover bg-center opacity-30 mix-blend-overlay"></div>
         @endif
         <div class="absolute inset-0 bg-gradient-to-r from-primary-900/95 to-primary-800/80 dark:from-gray-900/95 dark:to-gray-800/90"></div>
 

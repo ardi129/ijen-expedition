@@ -11,7 +11,7 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center mb-12 sm:mb-20">
                 <div class="order-2 lg:order-1">
-                    <img src="{{ asset('images/Ijen-expedition-logo.png') }}" alt="Ijen Expedition" class="w-40 sm:w-56 lg:w-64 h-auto mx-auto object-contain dark:brightness-90">
+                    <img src="{{ asset('images/Ijen-expedition-logo.png') }}" alt="Ijen Expedition" class="w-full h-auto rounded-xl">
                 </div>
                 <div class="order-1 lg:order-2 space-y-3 sm:space-y-6">
                     <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white">Lebih dari Sekadar Tour & Travel</h2>
