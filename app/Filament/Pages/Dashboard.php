@@ -29,7 +29,7 @@ class Dashboard extends BaseDashboard
                     Select::make('payment_status')
                         ->label('Status Pembayaran')
                         ->options([
-                            'all' => 'Semua (Lunas + DP)',
+                            'all' => 'Semua Status',
                             'paid' => 'Lunas',
                             'partial' => 'DP',
                         ])
@@ -43,7 +43,7 @@ class Dashboard extends BaseDashboard
                         'payment_status' => $data['payment_status'],
                     ]);
 
-                    redirect()->to(route('admin.recap.pdf', $query));
+                    return redirect()->to(route('admin.recap.pdf', $query));
                 }),
         ];
     }

@@ -70,14 +70,44 @@
         }
         .footer {
             margin-top: 25px;
-            padding-top: 10px;
-            border-top: 1px solid #ddd;
+            padding-top: 15px;
+            border-top: 2px solid #1a3a5c;
+        }
+        .footer-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        .footer-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 5px;
+        }
+        .footer-table td {
+            padding: 5px 8px;
+            border: none;
+            font-size: 11px;
+        }
+        .footer-table .label {
+            text-align: left;
+            width: 70%;
+        }
+        .footer-table .value {
             text-align: right;
+            font-weight: bold;
+            width: 30%;
+        }
+        .footer-table .total-row td {
+            border-top: 1px solid #ddd;
+            font-size: 13px;
+            color: #1a3a5c;
+        }
+        .footer-table .outstanding-row td {
+            color: #dc2626;
             font-size: 12px;
         }
-        .footer strong {
-            font-size: 14px;
-            color: #1a3a5c;
+        .text-danger {
+            color: #dc2626;
         }
         .generated-at {
             text-align: center;
@@ -98,11 +128,14 @@
         <thead>
             <tr>
                 <th style="width: 4%;">No</th>
-                <th style="width: 22%;">Nama</th>
-                <th style="width: 26%;">Paket Wisata</th>
-                <th style="width: 14%;">Tanggal</th>
-                <th style="width: 18%;" class="text-right">Total Harga</th>
-                <th style="width: 16%;" class="text-center">Pembayaran</th>
+                <th style="width: 18%;">Nama</th>
+                <th style="width: 20%;">Paket Wisata</th>
+                <th style="width: 10%;">Tanggal</th>
+                <th style="width: 5%;" class="text-center">Org</th>
+                <th style="width: 15%;" class="text-right">Total Harga</th>
+                <th style="width: 13%;" class="text-right">Dibayar</th>
+                <th style="width: 13%;" class="text-right">Sisa</th>
+                <th style="width: 10%;" class="text-center">Status</th>
             </tr>
         </thead>
         <tbody>
@@ -112,7 +145,16 @@
                 <td>{{ $booking->name }}</td>
                 <td>{{ $booking->tourPackage?->title }}</td>
                 <td>{{ \Carbon\Carbon::parse($booking->travel_date)->format('d/m/Y') }}</td>
+                <td class="text-center">{{ $booking->number_of_people }}</td>
                 <td class="text-right">{{ $booking->total_price ? 'Rp ' . number_format($booking->total_price, 0, ',', '.') : '-' }}</td>
+                <td class="text-right">{{ $booking->paid_amount ? 'Rp ' . number_format($booking->paid_amount, 0, ',', '.') : '-' }}</td>
+                <td class="text-right">
+                    @if($booking->payment_status === 'partial' && $booking->remainingAmount() > 0)
+                        <span class="text-danger">Rp {{ number_format($booking->remainingAmount(), 0, ',', '.') }}</span>
+                    @else
+                        -
+                    @endif
+                </td>
                 <td class="text-center">
                     @if($booking->payment_status === 'paid')
                         <span class="badge badge-paid">Lunas</span>
@@ -125,14 +167,29 @@
             </tr>
             @empty
             <tr>
-                <td colspan="6" class="text-center" style="padding: 20px; color: #999;">Belum ada data pemesanan</td>
+                <td colspan="9" class="text-center" style="padding: 20px; color: #999;">Belum ada data pemesanan</td>
             </tr>
             @endforelse
         </tbody>
     </table>
 
     <div class="footer">
-        <p>Total Pemasukan: <strong>Rp {{ number_format($totalRevenue, 0, ',', '.') }}</strong></p>
+        <table class="footer-table">
+            <tr class="total-row">
+                <td class="label">Total Harga Keseluruhan:</td>
+                <td class="value">Rp {{ number_format($totalRevenue, 0, ',', '.') }}</td>
+            </tr>
+            <tr>
+                <td class="label">Total Sudah Dibayar:</td>
+                <td class="value">Rp {{ number_format($totalPaid, 0, ',', '.') }}</td>
+            </tr>
+            @if($totalOutstanding > 0)
+            <tr class="outstanding-row">
+                <td class="label">Total Belum Lunas (Sisa DP):</td>
+                <td class="value">Rp {{ number_format($totalOutstanding, 0, ',', '.') }}</td>
+            </tr>
+            @endif
+        </table>
     </div>
 
     <div class="generated-at">

@@ -32,13 +32,10 @@ class BookingsTable
                     ->numeric()
                     ->sortable()
                     ->alignCenter(),
-                SelectColumn::make('payment_status')
-                    ->label('Pembayaran')
-                    ->options([
-                        'unpaid' => 'Belum Bayar',
-                        'partial' => 'DP',
-                        'paid' => 'Lunas',
-                    ]),
+                TextColumn::make('total_price')
+                    ->label('Total Harga')
+                    ->formatStateUsing(fn ($state): string => $state ? 'Rp '.number_format($state, 0, ',', '.') : '-')
+                    ->sortable(),
                 SelectColumn::make('status')
                     ->label('Status')
                     ->options([
@@ -48,11 +45,13 @@ class BookingsTable
                         'completed' => 'Selesai',
                     ])
                     ->selectablePlaceholder(false),
-                TextColumn::make('total_price')
-                    ->label('Total Harga')
-                    ->formatStateUsing(fn ($state): string => $state ? 'Rp '.number_format($state, 0, ',', '.') : '-')
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('remaining_amount')
+                    ->label('Sisa Bayar')
+                    ->state(fn (Booking $record): int => $record->remainingAmount())
+                    ->formatStateUsing(fn ($state): string => $state > 0 ? 'Rp '.number_format($state, 0, ',', '.') : '-')
+                    ->color(fn ($state): ?string => $state > 0 ? 'danger' : null)
+                    ->badge(fn ($state): bool => $state > 0)
+                    ->toggleable(),
                 TextColumn::make('phone')
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),

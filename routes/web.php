@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AdminRecapController;
+use App\Http\Controllers\Admin\AdminRecapController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DestinationController;
