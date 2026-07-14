@@ -12,6 +12,19 @@
 
     <x-hero-slider :hero-slides="$heroSlides" />
 
+    <!-- Search Bar -->
+    <div class="relative w-full -mt-6 sm:-mt-10 z-30 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+        <form action="{{ route('search') }}" method="GET" class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-2 sm:p-3 flex items-center border border-transparent dark:border-transparent focus-within:border-transparent">
+            <div class="pl-2 sm:pl-4 text-gray-400">
+                <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </div>
+            <input type="text" name="q" value="{{ request('q') }}" placeholder="Cari paket wisata, destinasi, atau artikel..." class="w-full bg-transparent border-none outline-none focus:outline-none focus:ring-0 focus:border-transparent px-3 sm:px-4 text-sm sm:text-base text-gray-900 dark:text-white placeholder-gray-400" required>
+            <button type="submit" class="bg-primary-600 hover:bg-primary-700 text-white rounded-xl px-4 sm:px-8 py-2 sm:py-3 transition-colors flex-shrink-0 flex items-center font-medium text-sm sm:text-base shadow-sm">
+                Cari
+            </button>
+        </form>
+    </div>
+
     <!-- Destinations -->
     <section class="py-10 sm:py-16 lg:py-20 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
         <div class="container-custom">

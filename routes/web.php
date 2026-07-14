@@ -10,7 +10,10 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\TourPackageController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\SearchController;
+
 Route::get('/', HomeController::class)->name('home');
+Route::get('/search', SearchController::class)->name('search');
 
 Route::controller(TourPackageController::class)->group(function () {
     Route::get('/paket-wisata', 'index')->name('packages.index');
@@ -38,6 +41,8 @@ Route::controller(PageController::class)->group(function () {
     Route::get('/tentang-kami', 'about')->name('about');
     Route::get('/faq', 'faq')->name('faq');
     Route::get('/kontak', 'contact')->name('contact');
+    Route::get('/syarat-ketentuan', 'terms')->name('terms');
+    Route::get('/kebijakan-privasi', 'privacy')->name('privacy');
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {

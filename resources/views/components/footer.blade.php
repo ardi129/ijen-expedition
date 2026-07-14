@@ -38,8 +38,8 @@
                 <ul class="space-y-3">
                     <li><a href="{{ route('faq') }}" class="text-gray-500 hover:text-primary-500 dark:text-gray-400 dark:hover:text-primary-400 transition-colors text-sm py-1 inline-block">Tanya Jawab (FAQ)</a></li>
                     <li><a href="{{ route('contact') }}" class="text-gray-500 hover:text-primary-500 dark:text-gray-400 dark:hover:text-primary-400 transition-colors text-sm py-1 inline-block">Kontak</a></li>
-                    <li><a href="#" class="text-gray-500 hover:text-primary-500 dark:text-gray-400 dark:hover:text-primary-400 transition-colors text-sm py-1 inline-block">Syarat & Ketentuan</a></li>
-                    <li><a href="#" class="text-gray-500 hover:text-primary-500 dark:text-gray-400 dark:hover:text-primary-400 transition-colors text-sm py-1 inline-block">Kebijakan Privasi</a></li>
+                    <li><a href="{{ route('terms') }}" class="text-gray-500 hover:text-primary-500 dark:text-gray-400 dark:hover:text-primary-400 transition-colors text-sm py-1 inline-block">Syarat & Ketentuan</a></li>
+                    <li><a href="{{ route('privacy') }}" class="text-gray-500 hover:text-primary-500 dark:text-gray-400 dark:hover:text-primary-400 transition-colors text-sm py-1 inline-block">Kebijakan Privasi</a></li>
                 </ul>
             </div>
 
