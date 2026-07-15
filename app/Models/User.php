@@ -12,10 +12,15 @@ use Illuminate\Notifications\Notifiable;
 
 #[Fillable(['name', 'email', 'password'])]
 #[Hidden(['password', 'remember_token'])]
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
+
+    public function canAccessFilament(): bool
+    {
+        return true; // atau sesuai role, misal $this->is_admin;
+    }
 
     /**
      * Get the attributes that should be cast.
