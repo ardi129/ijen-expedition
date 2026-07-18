@@ -3,24 +3,26 @@
 namespace App\Filament\Pages;
 
 use App\Models\ContentBlock;
+use BackedEnum;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
-use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
+use Filament\Schemas\Schema;
+use UnitEnum;
 
 class EditTerms extends Page implements HasForms
 {
     use InteractsWithForms;
 
-    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
 
     protected static ?string $navigationLabel = 'Syarat & Ketentuan';
 
-    protected static string|\UnitEnum|null $navigationGroup = 'Pengaturan';
+    protected static string|UnitEnum|null $navigationGroup = 'Pengaturan';
 
     protected static ?int $navigationSort = 5;
 
@@ -44,7 +46,7 @@ class EditTerms extends Page implements HasForms
         $this->form->fill($record->toArray());
     }
 
-    public function form(Form $form): Form
+    public function form(Schema $form): Schema
     {
         return $form
             ->schema([
@@ -58,12 +60,19 @@ class EditTerms extends Page implements HasForms
                             ->required()
                             ->columnSpanFull()
                             ->toolbarButtons([
-                                'bold', 'italic', 'underline', 'strike',
-                                'h2', 'h3', 'h4',
-                                'bulletList', 'orderedList',
+                                'bold',
+                                'italic',
+                                'underline',
+                                'strike',
+                                'h2',
+                                'h3',
+                                'h4',
+                                'bulletList',
+                                'orderedList',
                                 'blockquote',
                                 'link',
-                                'undo', 'redo',
+                                'undo',
+                                'redo',
                             ]),
                     ]),
             ])
