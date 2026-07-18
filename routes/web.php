@@ -7,10 +7,9 @@ use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\TourPackageController;
 use Illuminate\Support\Facades\Route;
-
-use App\Http\Controllers\SearchController;
 
 Route::get('/', HomeController::class)->name('home');
 Route::get('/search', SearchController::class)->name('search');

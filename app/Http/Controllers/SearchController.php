@@ -13,7 +13,7 @@ class SearchController extends Controller
     public function __invoke(Request $request): View
     {
         $query = $request->get('q');
-        
+
         if (empty($query)) {
             return view('pages.search', [
                 'query' => $query,
@@ -35,8 +35,8 @@ class SearchController extends Controller
         $articles = Article::published()
             ->where(function ($q) use ($query) {
                 $q->where('title', 'like', "%{$query}%")
-                  ->orWhere('excerpt', 'like', "%{$query}%")
-                  ->orWhere('body', 'like', "%{$query}%");
+                    ->orWhere('excerpt', 'like', "%{$query}%")
+                    ->orWhere('body', 'like', "%{$query}%");
             })
             ->get();
 

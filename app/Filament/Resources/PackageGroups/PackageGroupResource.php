@@ -10,13 +10,12 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
-use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-
 use Filament\Resources\Resource;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\IconColumn;
@@ -72,7 +71,7 @@ class PackageGroupResource extends Resource
                             ->required()
                             ->options(fn ($get): array|Collection => $get('filter_type') === 'category'
                                 ? Category::orderBy('name')->pluck('name', 'slug')
-                                : collect(range(1, 14))->mapWithKeys(fn (int $i) => [$i => $i . ' Hari']))
+                                : collect(range(1, 14))->mapWithKeys(fn (int $i) => [$i => $i.' Hari']))
                             ->helperText(fn ($get) => $get('filter_type') === 'category'
                                 ? 'Pilih kategori paket'
                                 : 'Pilih durasi paket dalam hari'),
@@ -91,8 +90,8 @@ class PackageGroupResource extends Resource
                             ->options(fn ($get): array|Collection => $get('exclude_filter_type') === 'category'
                                 ? Category::orderBy('name')->pluck('name', 'slug')
                                 : ($get('exclude_filter_type') === 'duration'
-                                    ? collect(range(1, 14))->mapWithKeys(fn (int $i) => [$i => $i . ' Hari'])
-                                    : []))
+                                    ? collect(range(1, 14))->mapWithKeys(fn (int $i) => [$i => $i.' Hari'])
+                                    : [])),
                     ]),
                 Section::make('Pengaturan')
                     ->columns(2)
