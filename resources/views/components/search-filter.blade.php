@@ -45,5 +45,13 @@
         <button type="submit" class="btn-primary w-full sm:w-auto">
             Cari
         </button>
+        @if(request('q') || request('category') || request('duration'))
+            <a href="{{ route('packages.index') }}" class="btn-secondary w-full sm:w-auto text-center flex items-center justify-center gap-2">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H12v4" />
+                </svg>
+                Reset
+            </a>
+        @endif
     </form>
 </div>

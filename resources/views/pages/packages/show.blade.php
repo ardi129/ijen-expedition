@@ -44,7 +44,11 @@
                         <div class="tab-pane block" id="tab-overview">
                             <h2 class="text-lg sm:text-2xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4 border-b pb-2 dark:border-gray-700">Cerita Perjalanan</h2>
                             <div class="text-xs sm:text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed text-justify">
-                                {!! nl2br(e($tourPackage->description)) !!}
+                                @if($tourPackage->description === strip_tags($tourPackage->description))
+                                    {!! nl2br(e($tourPackage->description)) !!}
+                                @else
+                                    {!! $tourPackage->description !!}
+                                @endif
                             </div>
         
                             @if(!empty($tourPackage->highlights))

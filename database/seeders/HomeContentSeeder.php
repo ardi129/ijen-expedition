@@ -111,6 +111,22 @@ class HomeContentSeeder extends Seeder
                 'image' => null,
                 'is_active' => true,
             ],
+            [
+                'key' => 'terms-conditions',
+                'title' => 'Syarat & Ketentuan',
+                'subtitle' => null,
+                'content' => '<h3>1. Pendaftaran dan Pemesanan</h3><p>Pendaftaran paket wisata dapat dilakukan melalui website, WhatsApp, atau email resmi kami. Pemesanan dianggap sah setelah ada konfirmasi pembayaran Down Payment (DP) atau pelunasan.</p><h3>2. Pembayaran</h3><p>Pembayaran DP minimal 30% dari total biaya keseluruhan (atau sesuai kesepakatan) dibayarkan maksimal H-7 sebelum hari keberangkatan. Pelunasan dapat dibayarkan H-1 atau saat meeting point sebelum keberangkatan.</p><h3>3. Pembatalan dan Pengembalian Dana</h3><p>Pembatalan yang dilakukan oleh peserta akan mengakibatkan DP hangus. Namun, pemindahan tanggal (reschedule) diperbolehkan dengan pemberitahuan minimal H-7, tergantung ketersediaan.</p><p>Jika terjadi pembatalan dari pihak penyelenggara karena force majeure (bencana alam, kondisi cuaca ekstrem, dll), maka dana akan dikembalikan sepenuhnya (100%).</p><h3>4. Tanggung Jawab dan Keamanan</h3><p>Peserta wajib mematuhi instruksi dari guide/pemandu wisata demi keselamatan bersama. Pihak penyelenggara tidak bertanggung jawab atas kehilangan barang berharga pribadi peserta selama trip.</p>',
+                'image' => null,
+                'is_active' => true,
+            ],
+            [
+                'key' => 'privacy-policy',
+                'title' => 'Kebijakan Privasi',
+                'subtitle' => null,
+                'content' => '<p>Ijen Expedition Trip ("kami", "milik kami", atau "kita") menghargai privasi Anda dan berkomitmen untuk melindungi data pribadi yang Anda bagikan kepada kami. Kebijakan Privasi ini menjelaskan bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi Anda saat Anda menggunakan layanan kami.</p><h3>1. Informasi yang Kami Kumpulkan</h3><p>Kami dapat mengumpulkan informasi identitas pribadi, seperti nama, alamat email, nomor telepon, dan informasi pembayaran, yang Anda berikan secara sukarela saat memesan paket wisata atau menghubungi kami.</p><h3>2. Penggunaan Informasi</h3><p>Informasi yang kami kumpulkan digunakan untuk memproses pemesanan Anda, berkomunikasi mengenai layanan yang Anda pesan, dan untuk tujuan administratif lainnya.</p><h3>3. Keamanan Data</h3><p>Kami menerapkan langkah-langkah keamanan yang wajar untuk melindungi data pribadi Anda dari akses yang tidak sah, pengubahan, pengungkapan, atau penghancuran.</p><h3>4. Berbagi Informasi dengan Pihak Ketiga</h3><p>Kami tidak akan menjual, memperdagangkan, atau menyewakan informasi pribadi Anda kepada pihak ketiga. Kami hanya dapat membagikan informasi Anda dengan mitra terpercaya (seperti penyedia transportasi atau penginapan) yang membantu kami dalam menyelenggarakan trip Anda.</p><h3>5. Perubahan Kebijakan Privasi</h3><p>Kami berhak untuk mengubah Kebijakan Privasi ini kapan saja. Setiap perubahan akan diumumkan di halaman ini.</p>',
+                'image' => null,
+                'is_active' => true,
+            ],
         ], ['key'], ['title', 'subtitle', 'content', 'image', 'is_active']);
     }
 

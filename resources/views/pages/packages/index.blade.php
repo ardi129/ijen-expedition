@@ -40,7 +40,7 @@
                 <div class="col-span-full py-16 sm:py-20 text-center">
                     <svg class="w-12 h-12 sm:w-16 sm:h-16 text-gray-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     <h3 class="text-lg sm:text-xl font-medium text-gray-900 dark:text-white mb-2">Paket tidak ditemukan</h3>
-                    <p class="text-sm sm:text-base text-gray-500 dark:text-gray-400 mb-6">Maaf, tidak ada paket wisata yang sesuai dengan pencarian Anda.</p>
+                    <p class="text-sm sm:text-base text-gray-500 dark:text-gray-400 mb-6">Paket tidak ditemukan. Coba ubah pencarian Anda.</p>
                     <a href="{{ route('packages.index') }}" class="btn-primary">Tampilkan Semua Paket</a>
                 </div>
             @endforelse

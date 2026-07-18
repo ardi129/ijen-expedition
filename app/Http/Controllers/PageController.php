@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ContentBlock;
 use App\Models\Faq;
 use Illuminate\View\View;
 
@@ -28,11 +29,15 @@ class PageController extends Controller
 
     public function terms(): View
     {
-        return view('pages.terms');
+        $terms = ContentBlock::where('key', 'terms-conditions')->first();
+
+        return view('pages.terms', compact('terms'));
     }
 
     public function privacy(): View
     {
-        return view('pages.privacy');
+        $privacy = ContentBlock::where('key', 'privacy-policy')->first();
+
+        return view('pages.privacy', compact('privacy'));
     }
 }
